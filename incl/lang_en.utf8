@@ -1,0 +1,25 @@
+<?php
+
+$lang=[];
+
+$lang['del_p']    = 'Enter accesskey to delete this entry';
+$lang['total']     = 'Total';
+$lang['average']   = 'Average';
+$lang['view']      = 'Go';
+$lang['food']      = 'Food';
+$lang['cal']       = 'Cal';
+$lang['grams']     = 'g';
+$lang['kg']        = 'kg';
+$lang['fat_s']     = 'F';
+$lang['carb_s']    = 'C';
+$lang['prot_s']    = 'P';
+$lang['time']      = 'Time';
+$lang['date']      = 'Date';
+$lang['days']      = 'days';
+$lang['today']     = 'Today';
+$lang['y_day']     = 'Yesterday';
+$lang['t_month']   = 'This month';
+$lang['l_month']   = 'Last month';
+$lang['ai_prompt'] = 'AI';
+
+?>

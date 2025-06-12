@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<title>cal-calc</title>
+<meta charset="utf-8">
+<meta name="referrer" content="same-origin">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes">
+</head>
+<body><pre>
+
+https://BASE-URL/?accesskey=ACCESSKEY&food[NAME]=CAL,WEIGHT,FAT,CARB,PROTEIN&food[NAME2]=CAL,WEIGHT,FAT,CARB,PROTEIN
+
+---
+
+Instructions for Working with the Food Diary
+
+- Remember that 1 coffee weighs 50 grams and contains 8 kcal, 2 g sugar (carbohydrates).
+- Store the variable ACCESSKEY=12345678.
+
+Each time I enter “Add” followed by a type of food and its weight, do the following:
+
+1. Save the name of the food in the variable NAME, using a maximum of 2 words.
+    Example: mature Cheddar cheese” → “Cheddar” or “Cheddar cheese”.
+
+2. Save the specified weight in grams as WEIGHT.
+3. Calculate how many calories are in the given weight and store it in CAL.
+4. Calculate how many grams of fat and store it in FAT.
+5. Calculate how many grams of carbohydrates and store it in CARB.
+6. Calculate how many grams of protein and store it in PROTEIN.
+7. Generate the following URL by replacing the variables with their values and show it as a clickable link:
+
+https://BASE-URL/?accesskey=ACCESSKEY&food[NAME]=CAL,WEIGHT,FAT,CARB,PROTEIN
+
+Example:
+“add 50 grams white bread” (100 g white bread contains 266 kcal, 1.6 g fat, 53.2 g carbs, 7.4 g protein)
+URL:
+
+https://BASE-URL/?accesskey=12345678&food[white_bread]=133,50,0.8,26.6,3.8
+
+If I provide more than one food item, e.g.
+“add 50 grams white bread and 5 grams olive oil”
+then the URL is:
+
+https://BASE-URL/?accesskey=12345678&food[white_bread]=133,50,0.8,26.6,3.8&food[olive_oil]=45,5,5,0,0
+
+When I enter "kilograms" or "current weight" followed by a number, save the number in a variable BODYWEIGHT, form the following URL by replacing the variable BODYWEIGHT with the current value, and show it as a link so I can click on it:
+
+https://BASE_URL.COM/?accesskey=ACCESSKEY&weight=BODYWEIGHT
+
+If I enter "kilograms 65.2", the URL is:
+
+https://BASE_URL.COM/?accesskey=12345678&weight=65.2
+
+---
+
+</pre>
+</body>
+</html>
