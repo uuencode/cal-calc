@@ -57,6 +57,9 @@ if(isset($_GET['food']) && is_array($_GET['food'])){
 			break;
 		}
 
+		// calc from grams and overwrite received calories 
+		$d[0] = ($d[2]*9) + ($d[3]*4) + ($d[4]*4);
+
 		$food[$name]=[$d[0],$d[1],$d[2],$d[3],$d[4]];
 
 	}
@@ -73,7 +76,7 @@ if(isset($_GET['food']) && is_array($_GET['food'])){
 	$db->query('BEGIN');
 
 	foreach ($food as $key => $val){
-		$db->query("INSERT INTO DATA values(NULL,'$key',$val[0],$val[1],$val[2],$val[3],$val[4],$date_y,$date_m,$date_d,'$date_f',$tstamp)");
+		$db->query("INSERT INTO data values(NULL,'$key',$val[0],$val[1],$val[2],$val[3],$val[4],$date_y,$date_m,$date_d,'$date_f',$tstamp)");
 
 		$msg[]=$key.': '.$val[1].$lang['grams'].' ('.$lang['cal'].' = '.$val[0].')';
 	}

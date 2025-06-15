@@ -42,13 +42,11 @@ if(isset($_GET['q'])){
 
 if(!is_numeric($q)){
 	switch($q){
-		case 'today':     $q="SELECT * FROM DATA WHERE date_full='$today'"; $title=$lang['today'];     break;
-		case 'yesterday': $q="SELECT * FROM DATA WHERE date_full='$yesterday'"; $title=$lang['y_day']; $formget='yesterday'; break;
-		//case 'thismonth': $q="SELECT date_full,sum(cal) AS cal,sum(fat) AS f,sum(carb) AS c,sum(protein) AS p FROM DATA WHERE date_m=$this_month GROUP BY date_full"; $finc='month.php'; $title=$lang['t_month']; break;
-		case 'thismonth': $q="SELECT a.date_full AS date_full,b.weight AS kg,sum(cal) AS cal,sum(fat) AS f,sum(carb) AS c,sum(protein) AS p FROM DATA a LEFT JOIN weight b ON a.date_full=b.date_full WHERE date_m=$this_month GROUP BY a.date_full"; $finc='month.php'; $title=$lang['t_month']; break;
-		//case 'lastmonth': $q="SELECT date_full,sum(cal) AS cal,sum(fat) AS f,sum(carb) AS c,sum(protein) AS p FROM DATA WHERE date_m=$last_month GROUP BY date_full"; $finc='month.php'; $title=$lang['l_month']; break;
-		case 'lastmonth': $q="SELECT a.date_full AS date_full,b.weight AS kg,sum(cal) AS cal,sum(fat) AS f,sum(carb) AS c,sum(protein) AS p FROM DATA a LEFT JOIN weight b ON a.date_full=b.date_full WHERE date_m=$last_month GROUP BY a.date_full"; $finc='month.php'; $title=$lang['t_month']; break;
-		default:          $q="SELECT * FROM DATA WHERE date_full='$today'"; $title=$lang['today'];    break;
+		case 'today':     $q="SELECT * FROM data WHERE date_full='$today'"; $title=$lang['today'];     break;
+		case 'yesterday': $q="SELECT * FROM data WHERE date_full='$yesterday'"; $title=$lang['y_day']; $formget='yesterday'; break;
+		case 'thismonth': $q="SELECT a.date_full AS date_full,b.weight AS kg,sum(cal) AS cal,sum(fat) AS f,sum(carb) AS c,sum(protein) AS p FROM data a LEFT JOIN weight b ON a.date_full=b.date_full WHERE date_m=$this_month GROUP BY a.date_full"; $finc='month.php'; $title=$lang['t_month']; break;
+		case 'lastmonth': $q="SELECT a.date_full AS date_full,b.weight AS kg,sum(cal) AS cal,sum(fat) AS f,sum(carb) AS c,sum(protein) AS p FROM data a LEFT JOIN weight b ON a.date_full=b.date_full WHERE date_m=$last_month GROUP BY a.date_full"; $finc='month.php'; $title=$lang['t_month']; break;
+		default:          $q="SELECT * FROM data WHERE date_full='$today'"; $title=$lang['today'];    break;
 	}
 }
 else{
@@ -57,8 +55,7 @@ else{
 	$finc='month.php';
 	$title=$q.' '.$lang['days'];
 	$q=date('Y-m-d',strtotime("-$q days"));  
-	//$q="SELECT date_full,sum(cal) AS cal,sum(fat) AS f,sum(carb) AS c,sum(protein) AS p FROM DATA WHERE date_full>'$q' GROUP BY date_full"; 
-	$q="SELECT a.date_full AS date_full,b.weight AS kg,sum(cal) AS cal,sum(fat) AS f,sum(carb) AS c,sum(protein) AS p FROM DATA a LEFT JOIN weight b ON a.date_full=b.date_full WHERE a.date_full>'$q' GROUP BY a.date_full";
+	$q="SELECT a.date_full AS date_full,b.weight AS kg,sum(cal) AS cal,sum(fat) AS f,sum(carb) AS c,sum(protein) AS p FROM data a LEFT JOIN weight b ON a.date_full=b.date_full WHERE a.date_full>'$q' GROUP BY a.date_full";
 }
 
 $table=''; $info=''; $global_weight=0; $global_cal=0; $global_f=0; $global_c=0; $global_p=0; $days=0; $wdays=0;
